@@ -15,11 +15,11 @@ const tipPerPersonField = document.getElementById('tip-per-person');
 const totalPerPersonField = document.getElementById('total-per-person');
 
 // Default Values
-let billValue = 142.55;
-let numPeople = 5;
+let billValue = 0.00;
+let numPeople = 1;
 let tipPercentage = 15;
-let tipPerPerson = 4.28;
-let totalPerPerson = 32.79;
+let tipPerPerson = 0.00;
+let totalPerPerson = 0.00;
 
 // Implementing clean-up for Reset button
 const resetButton = document.getElementById("reset-btn");
@@ -28,10 +28,10 @@ resetButton.addEventListener('click', () => {
     errorMessagePeopleInput.classList.remove('display-error');
     billValueInput.style.borderColor = '';
     numPeopleInput.style.borderColor = '';
-    tipPerPersonField.innerHTML = '4.28';
-    totalPerPersonField.innerHTML = '32.79';
-    billValue = 142.55;
-    numPeople = 5;
+    tipPerPersonField.innerHTML = '0.00';
+    totalPerPersonField.innerHTML = '0.00';
+    billValue = 0.00;
+    numPeople = 1;
 });
 
 // -----------------------------
@@ -89,12 +89,12 @@ tipPercentageBtn.forEach((tipButton) => {
 
         // Handling non-filled fields
         if (billValueInput.value == "") {
-            billValue = 142.55;
+            billValue = 0;
         } else {
             billValue = billValueInput.value;
         }
         if (numPeopleInput.value == "") {
-            numPeople = 5;
+            numPeople = 1;
         } else {
             numPeople = numPeopleInput.value;
         }
@@ -108,7 +108,8 @@ billValueInput.addEventListener('input', () => {
         billValue = billValueInput.value;
         calculateTip(billValue, tipPercentage, numPeople);
     } else {
-        billValue = 142.55;
+        billValue = 0;
+        calculateTip(billValue, tipPercentage, numPeople);
     }
 });
 
@@ -117,7 +118,8 @@ numPeopleInput.addEventListener('input', () => {
         numPeople = numPeopleInput.value;
         calculateTip(billValue, tipPercentage, numPeople);
     } else {
-        numPeople = 5;
+        numPeople = 1;
+        calculateTip(billValue, tipPercentage, numPeople);
     }
 });
 
