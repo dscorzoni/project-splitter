@@ -60,6 +60,10 @@ form {
     gap: 1.5rem;
 }
 
+.tip-h2 {
+    margin-bottom: 0.5rem;
+}
+
 .input-header {
     display: flex;
     justify-content: space-between;
